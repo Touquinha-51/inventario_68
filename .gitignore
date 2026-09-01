@@ -1,0 +1,27 @@
+# Ambientes Virtuais (Dependências locais)
+venv/
+
+# Arquivos compilados do Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Banco de dados local padrão do Django (SQLite)
+db.sqlite3
+
+# Arquivos de upload dos usuários (Mídias)
+media/
+
+# Configurações sensíveis e chaves de API
+.env
+
+# Arquivos de logs e erros
+*.log
+
+# Pastas de editores de código (VS Code / PyCharm)
+.vscode/
+.idea/
+
+# Sistema operacional (macOS e Windows)
+.DS_Store
+Thumbs.db
