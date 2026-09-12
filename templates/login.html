@@ -1,10 +1,42 @@
-<html>
+<!DOCTYPE html>
+<html lang="pt-BR">
     <head>
         <title>Login</title>
+        <link rel="stylesheet" href="../static/css/login.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer">
     </head>
-    <body>
-        <h1>Login</h1>
-        <p>aqui o usuário irá fazer login com seu email e senha. Caso não tenha uma conta, poderá criar uma clicando no botão "Criar Conta".</p>
-        <p>Qualquer usuário não logado deve ser redirecionado para essa página ao tentar acessar qualquer área do site</p>
+
+<!--Aqui o usuário irá fazer login com seu email e senha. 
+Caso não tenha uma conta, poderá criar uma clicando no botão "Criar Conta".
+Qualquer usuário não logado deve ser redirecionado para essa página ao tentar acessar qualquer área do site-->
+
+    <body>        
+        <div class="container">
+            <div class="login-quadrado">
+                <h2>Login</h2>
+
+                <form action="">
+                    <div class="user-senha">
+                        <span class="icone"><i class="fa-solid fa-circle-user"></i></span>
+                        <input type="text" placeholder="Usuário">
+                    </div>
+
+                     <div class="user-senha">
+                        <span class="icone"><i class="fa-solid fa-key"></i></span>
+                        <input type="text" placeholder="Senha">
+                    </div>
+                    
+                    <button class="login-btn">Entrar</button>
+
+                    <div>
+                        <p>Não possui uma conta? <a class="link-registrar" href="#">Registre-se</a></p>
+                    </div>
+                    
+                </form>
+
+            </div>
+
+        </div>
+
     </body>
 </html>

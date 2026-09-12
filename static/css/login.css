@@ -1,0 +1,43 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: white;
+}
+
+.container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-quadrado {
+    width: 300px;
+    background: blue;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+h2 {
+    text-align: center;
+}
+
+.icone {
+    margin-right: 10px;
+}
+
+.link-registrar {
+    text-decoration: none;
+    color: inherit;
+}
+
+.user-senha {
+    padding: 10px;
+}
+
+.login-btn {
+    width: 90%;
+    cursor: pointer;
+    margin: 14px;
+    border-radius: 5px;
+}
