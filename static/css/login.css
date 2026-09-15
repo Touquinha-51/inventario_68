@@ -1,43 +1,80 @@
 body {
     margin: 0;
-    padding: 0;
-    background-color: white;
+    background: linear-gradient(135deg, #0e0d1b 0%, #1b2433 50%, #324252 100%);
 }
 
 .container {
     height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 0px;
 }
 
 .login-quadrado {
-    width: 300px;
-    background: blue;
+    width: 350px;
+    background: #0B6BFF;
     border-radius: 20px;
-    padding: 10px;
+    padding: 15px 35px 30px 35px;
+    box-shadow: 0px 10px 30px #00000056;
 }
 
 h2 {
+    color: white;
+    font-weight: 800;
     text-align: center;
-}
-
-.icone {
-    margin-right: 10px;
 }
 
 .link-registrar {
     text-decoration: none;
     color: inherit;
+    color: white;
 }
 
 .user-senha {
     padding: 10px;
+    position: relative;
+}
+
+.user-senha > i {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(10%);
+    z-index: 1;
+}
+
+.escrever-user-senha {
+    display: flex;
+    width: 100%;
+    padding: 10px 10px 10px 40px;
+    outline: none;
+    box-sizing: border-box;
+    box-shadow: 0px 10px 30px #00000056;
+    border: none;
+    border-radius: 10px;
+    position: relative;
+}
+
+.user-senha-texto {
+    margin: 0;
 }
 
 .login-btn {
-    width: 90%;
-    cursor: pointer;
-    margin: 14px;
+    width: 100%;
+    padding: 10px 0px;
+    margin: 25px 0px;
+    border: none;
     border-radius: 5px;
+    letter-spacing: 1px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0px 10px 30px -12px #00000056;
+}
+
+.logo-inv68 {
+    width: 400px;
+    height: auto;
+    margin: 30px;
 }

@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
     <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Login</title>
         <link rel="stylesheet" href="../static/css/login.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer">
@@ -10,23 +13,26 @@
 Caso não tenha uma conta, poderá criar uma clicando no botão "Criar Conta".
 Qualquer usuário não logado deve ser redirecionado para essa página ao tentar acessar qualquer área do site-->
 
-    <body>        
+    <body>
         <div class="container">
-            <div class="login-quadrado">
+            <img src="../static/img/logo-inv68-branco.png" alt="Logo do Inventário 68" class="logo-inv68"> 
+            <div class="login-quadrado"> <br>
                 <h2>Login</h2>
 
                 <form action="">
                     <div class="user-senha">
-                        <span class="icone"><i class="fa-solid fa-circle-user"></i></span>
-                        <input type="text" placeholder="Usuário">
+                        <i class="fa-solid fa-circle-user"></i>
+                        <br>
+                        <input type="text" placeholder="Usuário" class="escrever-user-senha">
                     </div>
 
-                     <div class="user-senha">
-                        <span class="icone"><i class="fa-solid fa-key"></i></span>
-                        <input type="text" placeholder="Senha">
+                    <div class="user-senha">
+                        <i class="fa-solid fa-key"></i>
+                        <br>
+                        <input type="password" placeholder="Senha" class="escrever-user-senha">
                     </div>
                     
-                    <button class="login-btn">Entrar</button>
+                    <button class="login-btn" type="submit">Entrar</button>
 
                     <div>
                         <p>Não possui uma conta? <a class="link-registrar" href="#">Registre-se</a></p>
