@@ -1,15 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
+
 body {
     margin: 0;
-    background: linear-gradient(135deg, #0e0d1b 0%, #1b2433 50%, #324252 100%);
 }
 
 .container {
+    background: linear-gradient(135deg, #0e0d1b 0%, #1b2433 50%, #324252 100%);
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 0px;
+    position: relative;
+}
+
+.container::after {
+    content: "";
+    background-image: url("../img/caixas-fundo-login.png");
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
 }
 
 .login-quadrado {
@@ -18,12 +32,14 @@ body {
     border-radius: 20px;
     padding: 15px 35px 30px 35px;
     box-shadow: 0px 10px 30px #00000056;
+    z-index: 1;
 }
 
 h2 {
     color: white;
-    font-weight: 800;
+    font-weight: 75;
     text-align: center;
+    font-family: Alfa Slab One, sans-serif;
 }
 
 .link-registrar {
@@ -38,6 +54,32 @@ h2 {
 }
 
 .user-senha > i {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(10%);
+    z-index: 1;
+}
+
+.user-email {
+    padding: 10px;
+    position: relative;
+}
+
+.user-email > i {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(10%);
+    z-index: 1;
+}
+
+.user-confirmar-senha {
+    padding: 10px;
+    position: relative;
+}
+
+.user-confirmar-senha > i {
     position: absolute;
     top: 50%;
     left: 20px;
@@ -77,4 +119,5 @@ h2 {
     width: 400px;
     height: auto;
     margin: 30px;
+    z-index: 1;
 }
