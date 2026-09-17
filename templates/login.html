@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer">
     </head>
 
-<!--Aqui o usuário irá fazer login com seu email e senha. 
+<!--Aqui o usuário irá fazer login com seu email e senha.
 Caso não tenha uma conta, poderá criar uma clicando no botão "Criar Conta".
 Qualquer usuário não logado deve ser redirecionado para essa página ao tentar acessar qualquer área do site-->
 
@@ -21,21 +21,22 @@ Qualquer usuário não logado deve ser redirecionado para essa página ao tentar
 
                 <form action="">
                     <div class="user-senha">
-                        <i class="fa-solid fa-circle-user"></i>
+                        <i class="fa-solid fa-circle-user icone-user"></i>
                         <br>
-                        <input type="text" placeholder="Usuário" class="escrever-user-senha">
+                        <input type="text" placeholder="Usuário" class="escrever-user-senha" required>
                     </div>
 
                     <div class="user-senha">
-                        <i class="fa-solid fa-key"></i>
+                        <i class="fa-solid fa-key icone-senha"></i>
                         <br>
-                        <input type="password" placeholder="Senha" class="escrever-user-senha">
+                        <input type="password" placeholder="Senha" class="escrever-user-senha" required>
+                        <i class="fa-solid fa-eye icone-olho"></i>
                     </div>
                     
                     <button class="login-btn" type="submit">Entrar</button>
 
                     <div>
-                        <p>Não possui uma conta? <a class="link-registrar" href="criar_conta.html">Registre-se</a></p>
+                        <p>Não possui uma conta? <a class="link-registrar-logar" href="criar_conta.html">Registre-se</a></p>
                     </div>
                     
                 </form>
