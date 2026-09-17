@@ -5,8 +5,7 @@ from .services.usuario_service import UsuarioService
 
 # serializer principal para leitura de usuários
 class UsuarioSerializer(serializers.ModelSerializer):
-    # campo extra apenas para exibição do tipo
-    tipo_display = serializers.CharField(source="get_tipo_display", read_only=True)
+
 
     class Meta:
         model = Usuario
@@ -15,21 +14,20 @@ class UsuarioSerializer(serializers.ModelSerializer):
             "id",
             "nome",
             "email",
-            "tipo",
-            "tipo_display",
+            "is_staff",
             "is_active",
             "criado_em",
         ]
         # campos somente leitura (não podem ser alterados via api)
-        read_only_fields = ["criado_em"]
+        read_only_fields = ["criado_em", "is_staff", "is_active", "id"]
 
 
 # serializer usado apenas na criação de usuários
 class UsuarioCreateSerializer(serializers.ModelSerializer):
     # senha principal (não retorna na api)
-    senha = serializers.CharField(write_only=True, min_length=8)
+    password1 = serializers.CharField(write_only=True, min_length=8)
     # confirmação de senha
-    senha_confirmacao = serializers.CharField(write_only=True)
+    password2 = serializers.CharField(write_only=True)
 
     class Meta:
         model = Usuario
@@ -37,20 +35,20 @@ class UsuarioCreateSerializer(serializers.ModelSerializer):
         fields = [
             "nome",
             "email",
-            "senha",
-            "senha_confirmacao",
+            "password1",
+            "password2",
         ]
 
     # validação personalizada para garantir que as senhas coincidem
     def validate(self, attrs):
-        if attrs["senha"] != attrs["senha_confirmacao"]:
-            raise serializers.ValidationError({"senha_confirmacao": "as senhas não coincidem."})
+        if attrs["password1"] != attrs["password2"]:
+            raise serializers.ValidationError({"password2": "as senhas não coincidem."})
         return attrs
 
     # criação do usuário delegada para a camada de serviço
     def create(self, validated_data):
         # remove confirmação de senha antes de criar
-        validated_data.pop("senha_confirmacao")
+        validated_data.pop("password2")
 
         # chama o service (regra de negócio centralizada)
         return UsuarioService.criar_usuario(validated_data)
