@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="../static/css/cod-confirmacao.css">
+      <title>Confirmação de Conta</title>
+    </head>
+
+<!-- Aqui o usuário irá inserir o código de verificação da conta na hora de criá-la -->
+
+    <body>
+        <div class="container">
+            <img src="../static/img/logo-inv68-branco.png" alt="Logo do Inventário 68" class="logo-inv68"> 
+            <div class="login-quadrado"> <br>
+                <h2>Insira o código de confirmação</h2>
+                <p class="texto-cod-conf">O código de confirmação foi enviado para</p>
+                <p class="email-verif">*@ - email*</p><br>
+
+                <div class="cod-conf-num">
+                    <input type="text" class="escrever-cod-conf" maxlength="1" pattern="\d{1}" required>
+                    <input type="text" class="escrever-cod-conf" maxlength="1" pattern="\d{1}" required>
+                    <input type="text" class="escrever-cod-conf" maxlength="1" pattern="\d{1}" required>
+                    <input type="text" class="escrever-cod-conf" maxlength="1" pattern="\d{1}" required>
+                </div>
+
+                <button class="login-btn" type="submit">Confirmar código</button>
+
+                <p class="reenviar-cod">Reenviar código</p>
+
+            </div>
+
+        </div>
+
+    </body>
+</html>

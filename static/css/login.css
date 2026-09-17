@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
+
+body {
+    margin: 0;
+}
+
+.container {
+    background: linear-gradient(135deg, #0e0d1b 0%, #1b2433 50%, #324252 100%);
+    height: 100vh;
+    width: 100%;
+    padding-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0px;
+    position: relative;
+}
+
+.container::after {
+    content: "";
+    background-image: url("../img/caixas-fundo-login.png");
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.login-quadrado {
+    width: 350px;
+    background: #0B6BFF;
+    border-radius: 20px;
+    padding: 15px 35px 30px 35px;
+    box-shadow: 0px 10px 30px #00000056;
+    z-index: 1;
+}
+
+h2 {
+    color: white;
+    font-weight: 75;
+    text-align: center;
+    font-family: Alfa Slab One, sans-serif;
+}
+
+.link-registrar-logar {
+    text-decoration: none;
+    color: inherit;
+    color: white;
+}
+
+.user-senha {
+    padding: 10px;
+    position: relative;
+}
+
+.icone-user {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(10%);
+    z-index: 1;
+}
+
+.icone-senha {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(10%);
+    z-index: 1;
+}
+
+.icone-email {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(10%);
+    z-index: 1;
+}
+
+.icone-olho{
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(10%);
+    z-index: 1;
+    cursor: pointer;
+}
+
+.icone-olho-conf {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(10%);
+    z-index: 1;
+    cursor: pointer;
+}
+
+.user-email {
+    padding: 10px;
+    position: relative;
+}
+
+.user-confirmar-senha {
+    padding: 10px;
+    position: relative;
+}
+
+.escrever-user-senha {
+    display: flex;
+    width: 100%;
+    padding: 10px 10px 10px 40px;
+    outline: none;
+    box-sizing: border-box;
+    box-shadow: 0px 10px 30px #00000056;
+    border: none;
+    border-radius: 10px;
+    position: relative;
+}
+
+.user-senha-texto {
+    margin: 0;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 10px 0px;
+    margin: 25px 0px;
+    border: none;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0px 10px 30px -12px #00000056;
+}
+
+.logo-inv68 {
+    width: 400px;
+    height: auto;
+    margin: 30px;
+    z-index: 1;
+}
