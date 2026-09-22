@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
 
 body {
     margin: 0;
@@ -40,7 +40,7 @@ h2 {
     font-weight: 70;
     font-size: 22px;
     text-align: center;
-    font-family: Alfa Slab One, sans-serif;
+    font-family: "Archivo Black", sans-serif;
 }
 
 p {
@@ -103,8 +103,7 @@ p {
 .reenviar-cod {
     color: rgb(231, 217, 217);
     font-size: 15px;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: "Archivo Black", Times, serif;
     text-align: center;
     cursor: pointer;
 }
-

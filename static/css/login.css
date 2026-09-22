@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
 
 body {
     margin: 0;
@@ -41,7 +41,7 @@ h2 {
     color: white;
     font-weight: 75;
     text-align: center;
-    font-family: Alfa Slab One, sans-serif;
+    font-family: "Archivo Black", sans-serif;
 }
 
 .link-registrar-logar {
@@ -140,4 +140,9 @@ h2 {
     height: auto;
     margin: 30px;
     z-index: 1;
+}
+
+p {
+    font-family: "Archivo Black", sans-serif;
+    font-size: 15px;
 }
