@@ -11,7 +11,7 @@ class UsuarioAdmin(UserAdmin):
     form = UsuarioAdminForm
     model = Usuario
 
-    list_display = ["email", "nome", "is_staff", "is_active", "criado_em"]
+    list_display = ["email", "nome", "is_staff", "is_active", "is_superuser", "criado_em"]
 
     # Ordenação padrão da tabela
     ordering = ["criado_em"]

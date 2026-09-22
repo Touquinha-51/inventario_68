@@ -18,22 +18,24 @@ class RegistroForm(UserCreationForm):
             "email",
         ]
 
-    nome = forms.CharField(required=True, max_length=100)
-    email = forms.EmailField(required=True, max_length=150)
-
     # validações
     def clean_email(self):
         email = self.cleaned_data.get('email')
+        # dominio_permitido = "ifrn.edu.br"
+        # validação para permitir apenas emails institucionais do IFRN
+        # if dominio_permitido not in email.split("@")[1]:
+            # raise ValidationError("Use um e-mail institucional (domínio: ifrn.edu.br).")
+
         # Verifica se o e-mail já existe, mas ignora o e-mail do próprio usuário atual
-        if Usuario.objects.filter(email=email).exclude(pk=self.instance.pk).exists():
+        if Usuario.objects.filter(email=email).exists():
             raise ValidationError("Este e-mail já está em uso por outra conta.")
         return email
 
 # form simples para login
 class LoginForm(forms.Form):
 
-    # campo de usuário
-    username = forms.CharField(label="Email")
+    # campo de email (usado como username)
+    username = forms.EmailField(label="Email")
 
     # campo de senha (input oculto)
     password = forms.CharField(label="Senha", widget=forms.PasswordInput())
@@ -73,6 +75,6 @@ class UsuarioMudarEmailForm(forms.ModelForm):
     def clean_email(self):
         email = self.cleaned_data.get('email')
         # Verifica se o e-mail já existe, mas ignora o e-mail do próprio usuário atual
-        if Usuario.objects.filter(email=email).exists():
+        if Usuario.objects.filter(email=email).exclude(pk=self.instance.pk).exists():
             raise ValidationError("Este e-mail já está em uso por outra conta.")
         return email
