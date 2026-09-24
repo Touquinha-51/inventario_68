@@ -8,7 +8,7 @@ from .serializers import UsuarioSerializer, UsuarioCreateSerializer
 
 class UsuarioViewSet(ModelViewSet):
 
-    queryset = Usuario.objects.all().order_by("id")
+    queryset = Usuario.objects.all().order_by("criado_em")
     permission_classes = [IsAuthenticated]
 
     # define serializer dinamicamente

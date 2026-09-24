@@ -34,8 +34,8 @@ class RegistroForm(UserCreationForm):
 # form simples para login
 class LoginForm(forms.Form):
 
-    # campo de email (usado como username)
-    username = forms.EmailField(label="Email")
+    # campo de email
+    email = forms.EmailField(label="Email")
 
     # campo de senha (input oculto)
     password = forms.CharField(label="Senha", widget=forms.PasswordInput())

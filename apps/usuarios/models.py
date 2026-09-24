@@ -34,7 +34,7 @@ class UsuarioManager(UserManager):
 class Usuario(AbstractUser):
 
     username = None  # removendo o username porque não vamos usá-lo
-    email = models.EmailField(primary_key=True, unique=True)  # só um email por usuário
+    email = models.EmailField(primary_key=True)  # só um email por usuário
     nome = models.CharField(max_length=100, blank=False, null=False)
     criado_em = models.DateTimeField(auto_now_add=True)
 
