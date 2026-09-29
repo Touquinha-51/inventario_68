@@ -1,6 +1,5 @@
 from rest_framework import serializers
 from .models import Usuario
-from .services.usuario_service import UsuarioService
 
 
 # serializer principal para leitura de usuários
@@ -50,4 +49,4 @@ class UsuarioCreateSerializer(serializers.ModelSerializer):
         validated_data.pop("password2")
 
         # chama o service (regra de negócio centralizada)
-        return UsuarioService.criar_usuario(validated_data)
+        return Usuario.objects.create_user(**validated_data)
