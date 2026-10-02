@@ -13,6 +13,9 @@ https://docs.djangoproject.com/en/6.1/ref/settings/
 from pathlib import Path
 from dotenv import load_dotenv
 import os
+import cloudinary
+import cloudinary.uploader
+from cloudinary.utils import cloudinary_url
 
 # carrega as variaveis do .env
 load_dotenv()
@@ -38,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'cloudinary_storage',
+    'cloudinary',
     'apps.usuarios',
     'apps.projetos',
     'apps.itens'
@@ -108,13 +113,22 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Configura o Django para enviar os uploads para lá
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+# Configuration       
+CLOUDINARY_STORAGE{
+    CLOUD_NAME = os.getenv('CLOUD_NAME'), 
+    API_KEY = os.getenv('API_KEY'), 
+    API_SECRET = os.getenv('API_SECRET'),
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/6.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = "pt-br"
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = "America/Fortaleza"
 
 USE_I18N = True
 
