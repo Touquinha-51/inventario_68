@@ -38,6 +38,7 @@ class Usuario(AbstractUser):
     nome = models.CharField(max_length=100, blank=False, null=False)
     criado_em = models.DateTimeField(auto_now_add=True)
 
+    verificado = models.BooleanField(default=False)
     codigo_verificacao = models.CharField(max_length=4, blank=True, null=True)
     codigo_expira_em = models.DateTimeField(blank=True, null=True)
 

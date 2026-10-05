@@ -40,8 +40,11 @@ def login(request):
                 password=form.cleaned_data["password"],
             )
             if user:
-                login(request, user)
-                return redirect(request.GET.get("next", "/home"))
+                if user.verificado:
+                    login(request, user)
+                    return redirect(request.GET.get("next", "/home"))
+                else:
+                    messages.error(request, "Sua conta não é verificada.")
             else:
                 messages.error(request, "Credenciais inválidas.")
     else:
@@ -54,3 +57,19 @@ def logout(request):
     logout(request)
     # redireciona para login
     return redirect("login.html")
+
+def criar_conta(request):
+    if request.method == "POST":
+        form = RegistroForm(request.POST)
+        if form.is_valid():
+            usuario = form.save(commit=False)
+            usuario.codigo_confirmacao = str(random.randint(1000, 9999))
+            usuario.save()
+            request.session["usuario_email"] = usuario.email
+
+            return redirect("codigo_confirmacao")
+
+        return render(request, 'pages/cadastro.html', {'form': form})
+
+    form = RegistroForm()
+    return render(request, 'pages/cadastro.html', {'form': form})
