@@ -1,13 +1,13 @@
 from django.db import models
-from .models import Usuario
+from apps.usuarios.models import Usuario
 
 
 class Projeto(models.Model):
 
-    nome = models.CharField(max_lenght=60)
-    descricao = models.TextField(max_lenght=200, Blank=False, Null=False)
-    usuario = models.ForeignKey(Usuario, on_delete.CASCADE)
-    imagem = models.ImageField(upload_to="projetos/", Blank=True, Null=True)
+    nome = models.CharField(max_length=60)
+    descricao = models.TextField(max_length=200, blank=False, null=False)
+    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    imagem = models.ImageField(upload_to="projetos/", blank=True, null=True)
     ativo = models.BooleanField(default=True)
 
     def __str__(self):

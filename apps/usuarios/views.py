@@ -10,6 +10,7 @@ from django.contrib import messages
 
 # 3. locais
 from .models import Usuario
+from apps.projetos.models import Projeto
 from .forms import (
     LoginForm,
     RegistroForm,
@@ -69,7 +70,7 @@ def criar_conta(request):
 
             return redirect("codigo_confirmacao")
 
-        return render(request, 'pages/cadastro.html', {'form': form})
+        return render(request, 'criar_conta.html', {'form': form})
 
     form = RegistroForm()
-    return render(request, 'pages/cadastro.html', {'form': form})
+    return render(request, 'criar_conta.html', {'form': form})

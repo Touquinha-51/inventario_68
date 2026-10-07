@@ -22,7 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("", home, name="home"),
     path("usuarios/", include("apps.usuarios.urls")),
-    #path("projetos/", include("apps.projetos.urls")),
+    path("projetos/", include("apps.projetos.urls")),
     #path("itens/", include("apps.itens.urls")),
 
     #caminho dos endpoints da API

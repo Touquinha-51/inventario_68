@@ -1,8 +1,9 @@
 from .models import Projeto
-from django import form
+from django import forms
+from django.db import models
 
 
-class CriarProjeto(models.ModelForm):
+class CriarProjeto(forms.ModelForm):
 
 
     class Meta:

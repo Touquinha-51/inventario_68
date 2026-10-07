@@ -117,14 +117,16 @@ AUTH_PASSWORD_VALIDATORS = [
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Configuration       
-CLOUDINARY_STORAGE{
-    CLOUD_NAME = os.getenv('CLOUD_NAME'), 
-    API_KEY = os.getenv('API_KEY'), 
-    API_SECRET = os.getenv('API_SECRET'),
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': os.getenv('CLOUD_NAME'), 
+    'API_KEY': os.getenv('API_KEY'), 
+    'API_SECRET': os.getenv('API_SECRET'),
 }
 
 # Internationalization
 # https://docs.djangoproject.com/en/6.1/topics/i18n/
+
+LOGIN_URL = 'login'
 
 LANGUAGE_CODE = "pt-br"
 
@@ -140,6 +142,9 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
 
 # Email
 # https://docs.djangoproject.com/en/6.1/topics/email/#topic-email-configuration
