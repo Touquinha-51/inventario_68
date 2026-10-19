@@ -15,7 +15,7 @@
             <div class="login-quadrado"> <br>
                 <h2>Insira o código de confirmação</h2>
                 <p class="texto-cod-conf">O código de confirmação foi enviado para</p>
-                <p class="email-verif">*@ - email*</p><br>
+                <p class="email-verif" id="email-verificacao"></p><br>
 
                 <div class="cod-conf-num">
                     <input type="text" class="escrever-cod-conf" maxlength="1" pattern="\d{1}" required>
@@ -24,13 +24,13 @@
                     <input type="text" class="escrever-cod-conf" maxlength="1" pattern="\d{1}" required>
                 </div>
 
-                <button class="login-btn" type="submit">Confirmar código</button>
+                <button class="confirmar-cod-btn" type="submit">Confirmar código</button>
 
                 <p class="reenviar-cod">Reenviar código</p>
 
             </div>
 
         </div>
-
+        <script src="../static/js/cod-conf.js"></script>
     </body>
 </html>

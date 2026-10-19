@@ -11,7 +11,7 @@
 
 <!--Aqui o usuário irá fazer login com seu email e senha. 
 Caso não tenha uma conta, poderá criar uma clicando no botão "Criar Conta".
-Qualquer usuário não logado deve ser redirecionado para essa página ao tentar acessar qualquer área do site-->
+Qualquer usuário não logado deve ser redirecionado para essa página ao tentar acessar qualquer área do site.-->
 
     <body>
         <div class="container">
@@ -19,34 +19,38 @@ Qualquer usuário não logado deve ser redirecionado para essa página ao tentar
             <div class="login-quadrado"> <br>
                 <h2>Criar Conta</h2>
 
-                <form action="">
+                <form action="" novalidate>
                     <div class="user-senha">
                         <i class="fa-solid fa-circle-user icone-user"></i>
                         <br>
                         <input type="text" placeholder="Nome" class="escrever-user-senha" required>
+                        <small class="msg-erro-campos"></small>
                     </div>
 
                     <div class="user-email">
                         <i class="fa-solid fa-envelope icone-email"></i>
                         <br>
-                        <input type="text" placeholder="Email" class="escrever-user-senha" required>
+                        <input type="text" placeholder="Email" class="escrever-user-senha" id="email-cad" required>
+                        <small class="msg-erro-campos"></small>
                     </div>
 
                     <div class="user-senha">
                         <i class="fa-solid fa-key icone-senha"></i>
                         <br>
-                        <input type="password" placeholder="Senha" class="escrever-user-senha" required>
-                        <i class="fa-solid fa-eye icone-olho"></i>
+                        <input type="password" placeholder="Senha" class="escrever-user-senha" id="senha" required>
+                        <i class="fa-solid fa-eye icone-olho" id="olho-senha" onclick="mostrarSenha('senha', 'olho-senha')"></i>
+                        <small class="msg-erro-campos"></small>
                     </div>
                     
                      <div class="user-confirmar-senha">
                         <i class="fa-solid fa-key icone-senha"></i>
                         <br>
-                        <input type="password" placeholder="Confirmar senha" class="escrever-user-senha" required>
-                        <i class="fa-solid fa-eye icone-olho-conf"></i>
+                        <input type="password" placeholder="Confirmar senha" class="escrever-user-senha" id="confirmar-senha" required>
+                        <i class="fa-solid fa-eye icone-olho-conf" id="olho-confirmar-senha" onclick="mostrarSenha('confirmar-senha', 'olho-confirmar-senha')"></i>
+                        <small class="msg-erro-campos"></small>
                     </div>
 
-                    <button class="login-btn" type="submit">Criar conta</button>
+                    <button class="login-btn" type="submit" id="criar-conta">Criar conta</button>
                     
                     <div>
                         <p>Já possui uma conta? <a class="link-registrar-logar" href="login.html">Faça login</a></p>
@@ -57,11 +61,7 @@ Qualquer usuário não logado deve ser redirecionado para essa página ao tentar
             </div>
 
         </div>
-
-        <script>
-            var email = prompt()
-
-
-        </script>
+    <script src="../static/js/alertas.js"></script>
+    <script src="../static/js/esconder-senha.js"></script>
     </body>
 </html>
