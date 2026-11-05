@@ -39,8 +39,9 @@ class Usuario(AbstractUser):
     criado_em = models.DateTimeField(auto_now_add=True)
 
     verificado = models.BooleanField(default=False)
-    codigo_verificacao = models.CharField(max_length=4, blank=True, null=True)
+    codigo_verificacao = models.CharField(max_length=6, blank=True, null=True)
     codigo_expira_em = models.DateTimeField(blank=True, null=True)
+    tentativas = models.PositiveSmallIntegerField(default=0)
 
     USERNAME_FIELD = 'email'  # Define o campo de email como o campo de identificação do usuário
     REQUIRED_FIELDS = ['nome']
