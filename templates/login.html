@@ -19,7 +19,8 @@ Qualquer usuário não logado deve ser redirecionado para essa página ao tentar
             <div class="login-quadrado"> <br>
                 <h2>Login</h2>
 
-                <form action="">
+                <form method="POST" action="{% url 'login' %}">
+                    {% csrf_token %}
                     <div class="user-senha">
                         <i class="fa-solid fa-envelope icone-email"></i>
                         <br>
@@ -32,7 +33,8 @@ Qualquer usuário não logado deve ser redirecionado para essa página ao tentar
                         <input type="password" placeholder="Senha" class="escrever-user-senha" required>
                         <i class="fa-solid fa-eye icone-olho"></i>
                     </div>
-                    
+
+                    <input type="hidden" name="next" value="{{ request.GET.next }}">
                     <button class="login-btn" type="submit">Entrar</button>
 
                     <div>

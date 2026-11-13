@@ -39,7 +39,7 @@ class Usuario(AbstractUser):
     criado_em = models.DateTimeField(auto_now_add=True)
 
     verificado = models.BooleanField(default=False)
-    codigo_verificacao = models.CharField(max_length=6, blank=True, null=True)
+    codigo_confirmacao = models.CharField(max_length=6, blank=True, null=True)
     codigo_expira_em = models.DateTimeField(blank=True, null=True)
     tentativas = models.PositiveSmallIntegerField(default=0)
 

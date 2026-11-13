@@ -22,7 +22,6 @@ class RegistroForm(UserCreationForm):
     def clean_email(self):
         email = self.cleaned_data.get('email')
         dominio_permitido = "ifrn.edu.br"
-        validação para permitir apenas emails institucionais do IFRN
         if dominio_permitido not in email.split("@")[1]:
             raise ValidationError("Use um e-mail institucional (domínio: ifrn.edu.br).")
 

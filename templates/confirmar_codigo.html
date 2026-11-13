@@ -16,18 +16,25 @@
                 <h2>Insira o código de confirmação</h2>
                 <p class="texto-cod-conf">O código de confirmação foi enviado para</p>
                 <p class="email-verif">*@ - email*</p><br>
+                <form method="POST" action="{% url 'confirmar_codigo' %}">
+                    {% csrf_token %}
+                    <div class="cod-conf-num">
+                        <input type="text" class="escrever-cod-conf" maxlength="1" pattern="\d{1}" required>
+                        <input type="text" class="escrever-cod-conf" maxlength="1" pattern="\d{1}" required>
+                        <input type="text" class="escrever-cod-conf" maxlength="1" pattern="\d{1}" required>
+                        <input type="text" class="escrever-cod-conf" maxlength="1" pattern="\d{1}" required>
+                        <input type="text" class="escrever-cod-conf" maxlength="1" pattern="\d{1}" required>
+                        <input type="text" class="escrever-cod-conf" maxlength="1" pattern="\d{1}" required>
+                    </div>
 
-                <div class="cod-conf-num">
-                    <input type="text" class="escrever-cod-conf" maxlength="1" pattern="\d{1}" required>
-                    <input type="text" class="escrever-cod-conf" maxlength="1" pattern="\d{1}" required>
-                    <input type="text" class="escrever-cod-conf" maxlength="1" pattern="\d{1}" required>
-                    <input type="text" class="escrever-cod-conf" maxlength="1" pattern="\d{1}" required>
-                </div>
-
-                <button class="login-btn" type="submit">Confirmar código</button>
-
-                <p class="reenviar-cod">Reenviar código</p>
-
+                    <button class="login-btn" type="submit">Confirmar código</button>
+                </form>
+            </div>
+            <div>
+                <form method="POST" action="{% url 'reenviar_codigo' %}">
+                    {% csrf_token %}
+                    <p class="reenviar-cod">Reenviar código</p>
+                </form>
             </div>
 
         </div>

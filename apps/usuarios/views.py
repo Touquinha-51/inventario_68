@@ -10,6 +10,8 @@ from django.contrib import messages
 from django.core.mail import send_mail
 from datetime import timedelta
 from django.utils import timezone
+from django.utils.http import url_has_allowed_host_and_scheme
+from django.conf import settings
 
 # 3. locais
 from .models import Usuario
@@ -19,13 +21,14 @@ from .forms import (
     RegistroForm,
     UsuarioAdminForm,
     UsuarioMudarEmailForm,
-    UsuarioMudarNomeForm
+    UsuarioMudarNomeForm,
+    CodigoForm
 )
 
 def home(request):
     projetos = Projeto.objects.all() # mesmo o usuario não estando logado, ele vai ter acesso aos projetos
     if request.user.is_authenticated:
-        meus_projetos = request.user.projetos.all()
+        meus_projetos = request.user.projeto_set.all()
         return render(request, "home.html", {"projetos": projetos, "meus_projetos": meus_projetos}) # quando logado, a view consegue identificar os projetos do usuário e exibí-los
     else:
         return render(request, "home.html", {"projetos": projetos}) # quando não logado, a view exibe todos os projetos
@@ -46,7 +49,16 @@ def login(request):
             if user:
                 if user.verificado:
                     login(request, user)
-                    return redirect(request.GET.get("next", "home"))
+                    next_url = request.POST.get("next") or request.GET.get("next")
+
+                    if next_url and url_has_allowed_host_and_scheme(
+                        next_url,
+                        allowed_hosts={request.get_host()},
+                        require_https=request.is_secure()
+                    ):
+                        return redirect(next_url)
+
+                    return redirect("home")
                 else:
                     messages.error(request, "Sua conta não é verificada.")
             else:
@@ -65,11 +77,16 @@ def logout(request):
 def criar_conta(request):
     if request.method == "POST":
         form = RegistroForm(request.POST)
+
+        print("FORMULÁRIO VÁLIDO:", form.is_valid())
+        print("ERROS:", form.errors)
+
         if form.is_valid():
             usuario = form.save(commit=False)
-            usuario.codigo_confirmacao = secrets.randbellow(900000) + 100000
+            usuario.codigo_confirmacao = secrets.randbelow(900000) + 100000
             usuario.codigo_expira_em = timezone.now() + timedelta(minutes=5)
             usuario.save()
+            print("USUÁRIO SALVO:", usuario.email)
             request.session["usuario_email"] = usuario.email
 
             send_mail(
