@@ -19,12 +19,7 @@
                 <form method="POST" action="{% url 'confirmar_codigo' %}">
                     {% csrf_token %}
                     <div class="cod-conf-num">
-                        <input type="text" class="escrever-cod-conf" maxlength="1" pattern="\d{1}" required>
-                        <input type="text" class="escrever-cod-conf" maxlength="1" pattern="\d{1}" required>
-                        <input type="text" class="escrever-cod-conf" maxlength="1" pattern="\d{1}" required>
-                        <input type="text" class="escrever-cod-conf" maxlength="1" pattern="\d{1}" required>
-                        <input type="text" class="escrever-cod-conf" maxlength="1" pattern="\d{1}" required>
-                        <input type="text" class="escrever-cod-conf" maxlength="1" pattern="\d{1}" required>
+                        <input type="text" class="escrever-cod-conf" name="codigo" maxlength="6" required>
                     </div>
 
                     <button class="login-btn" type="submit">Confirmar código</button>
@@ -33,7 +28,7 @@
             <div>
                 <form method="POST" action="{% url 'reenviar_codigo' %}">
                     {% csrf_token %}
-                    <p class="reenviar-cod">Reenviar código</p>
+                    <input type="submit" class="reenviar-cod">Reenviar código</input>
                 </form>
             </div>
 

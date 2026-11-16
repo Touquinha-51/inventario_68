@@ -30,10 +30,9 @@ class RegistroForm(UserCreationForm):
             raise ValidationError("Este e-mail já está em uso por outra conta.")
         return email
 
-# form simples para login
+# form simples para receber o codigo
 class CodigoForm(forms.Form):
 
-    # campo de email
     codigo = forms.CharField(label="Codigo")
 
 # form simples para login
