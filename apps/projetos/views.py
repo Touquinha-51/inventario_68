@@ -1,8 +1,9 @@
-from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from .models import Projeto
 from .forms import CriarProjeto
+
 
 @login_required
 def criar_projeto(request):
@@ -20,8 +21,7 @@ def criar_projeto(request):
 
     else:
         form = CriarProjeto()
-
-        return render(request, "criar_projeto.html", {"form": form, "editar": False})
+    return render(request, "criar_projeto.html", {"form": form, "editar": False})
     
 
 @login_required

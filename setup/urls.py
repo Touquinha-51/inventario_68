@@ -26,7 +26,7 @@ urlpatterns = [
     #path("itens/", include("apps.itens.urls")),
 
     #caminho dos endpoints da API
-    #path("api/usuarios/", include("apps.usuarios.api_urls")),
-    #path("api/projetos/", include("apps.projetos.api_urls")),
+    path("api/usuarios/", include("apps.usuarios.api_urls")),
+    path("api/projetos/", include("apps.projetos.api_urls")),
     #path("api/itens/", include("apps.itens.api_urls")),
 ]

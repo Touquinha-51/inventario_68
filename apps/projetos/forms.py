@@ -7,7 +7,7 @@ class CriarProjeto(forms.ModelForm):
 
 
     class Meta:
-        models = Projeto
+        model = Projeto
         fields = [
             "nome",
             "descricao",

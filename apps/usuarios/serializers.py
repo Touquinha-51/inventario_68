@@ -48,5 +48,4 @@ class UsuarioCreateSerializer(serializers.ModelSerializer):
         # remove confirmação de senha antes de criar
         validated_data.pop("password2")
 
-        # chama o service (regra de negócio centralizada)
         return Usuario.objects.create_user(**validated_data)

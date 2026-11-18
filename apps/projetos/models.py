@@ -9,6 +9,7 @@ class Projeto(models.Model):
     usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
     imagem = models.ImageField(upload_to="projetos/", blank=True, null=True)
     ativo = models.BooleanField(default=True)
+    criado_em = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f"{self.nome} - {self.usuario}"

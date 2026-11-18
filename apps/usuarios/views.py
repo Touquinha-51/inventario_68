@@ -3,6 +3,7 @@ from functools import wraps
 import secrets
 
 # 2. Django
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login, logout, authenticate
