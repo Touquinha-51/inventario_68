@@ -3,8 +3,9 @@
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="stylesheet" href="../static/css/cod-confirmacao.css">
       <title>Confirmação de Conta</title>
+      <link rel="stylesheet" href="../static/css/cod-confirmacao.css">
+      <link rel="icon" href="../static/img/favicon.ico" type="image/x-icon">
     </head>
 
 <!-- Aqui o usuário irá inserir o código de verificação da conta na hora de criá-la -->
@@ -17,13 +18,19 @@
                 <p class="texto-cod-conf">O código de confirmação foi enviado para</p>
                 <p class="email-verif" id="email-verificacao"></p><br>
 
-                <div class="cod-conf-num">
-                    <input type="text" class="escrever-cod-conf" maxlength="4" pattern="\d{4}" required>
-                </div>
+                <form method="POST" action="{% url 'confirmar_codigo' %}">
+                    <!--{% csrf_token %}-->
+                    <div class="cod-conf-num">
+                        <input type="text" class="escrever-cod-conf" maxlength="6" pattern="\d{6}" required>
+                    </div>
+                </form>
 
                 <button class="confirmar-cod-btn" type="submit">Confirmar código</button>
 
-                <p class="reenviar-cod">Reenviar código</p>
+                <form method="POST" action="{% url 'reenviar_codigo' %}">
+                    <!--{% csrf_token %}-->
+                    <p class="reenviar-cod">Reenviar código</p>
+                </form>
 
             </div>
 

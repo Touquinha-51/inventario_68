@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Login</title>
         <link rel="stylesheet" href="../static/css/login.css">
+        <link rel="icon" href="../static/img/favicon.ico" type="image/x-icon">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer">
     </head>
 
@@ -19,26 +20,29 @@ Qualquer usuário não logado deve ser redirecionado para essa página ao tentar
             <div class="login-quadrado"> <br>
                 <h2>Login</h2>
 
-                <form action="" novalidate>
+                <form action="POST" action="{% url 'login' %}">
+                    <!--{% csrf_token %}-->
                     <div class="user-senha">
                         <i class="fa-solid fa-envelope icone-email"></i>
                         <br>
-                        <input type="text" placeholder="Email" class="escrever-user-senha" required>
+                        <input type="text" placeholder="Email" name="email" class="escrever-user-senha" required>
                         <small class="msg-erro-campos"></small>
                     </div>
 
                     <div class="user-senha">
                         <i class="fa-solid fa-key icone-senha"></i>
                         <br>
-                        <input type="password" placeholder="Senha" class="escrever-user-senha" id="senha" required>
+                        <input type="password" placeholder="Senha" name="password" class="escrever-user-senha" id="senha" required>
                         <i class="fa-solid fa-eye icone-olho" id="olho-senha" onclick="mostrarSenha('senha', 'olho-senha')"></i>
                         <small class="msg-erro-campos"></small>
                     </div>
                     
+                    <input type="hidden" name="next" value="{{ request.GET.next }}">
                     <button class="login-btn" type="submit">Entrar</button>
 
                     <div>
-                        <p>Não possui uma conta? <a class="link-registrar-logar" href="criar_conta.html">Registre-se</a></p>
+                        <p>Não possui uma conta? <a class="link-registrar-logar" href="../templates/criar_conta.html">Registre-se</a></p>
+                        <!--href="{% url 'criar_conta' %}"-->
                     </div>
                     
                 </form>

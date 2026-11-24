@@ -7,8 +7,7 @@
         <title>Registrar-se</title>
         <link rel="stylesheet" href="../static/css/login.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer">
-       <!--<link rel="icon" href="../static/img/logo-icone.png" type="image/png">-->
-        <link rel="icon" href="../static/img/logo-icone-68.ico" type="image/x-icon">
+        <link rel="icon" href="../static/img/favicon.ico" type="image/x-icon">
     </head>
 
 <!--Aqui o usuário irá fazer login com seu email e senha. 
@@ -21,25 +20,26 @@ Qualquer usuário não logado deve ser redirecionado para essa página ao tentar
             <div class="login-quadrado"> <br>
                 <h2>Criar Conta</h2>
 
-                <form action="" novalidate>
+                <form action="POST" action="{% url 'criar_conta' %}">
+                    <!--{% csrf_token %}-->
                     <div class="user-senha">
                         <i class="fa-solid fa-circle-user icone-user"></i>
                         <br>
-                        <input type="text" placeholder="Nome" class="escrever-user-senha" required>
+                        <input type="text" placeholder="Nome" name="nome" required>
                         <small class="msg-erro-campos"></small>
                     </div>
 
                     <div class="user-email">
                         <i class="fa-solid fa-envelope icone-email"></i>
                         <br>
-                        <input type="text" placeholder="Email" class="escrever-user-senha" id="email-cad" required>
+                        <input type="text" placeholder="Email" name="email" id="email-cad" required>
                         <small class="msg-erro-campos"></small>
                     </div>
 
                     <div class="user-senha">
                         <i class="fa-solid fa-key icone-senha"></i>
                         <br>
-                        <input type="password" placeholder="Senha" class="escrever-user-senha" id="senha" required>
+                        <input type="password" placeholder="Senha" name="password1" class="escrever-user-senha" id="senha" required>
                         <i class="fa-solid fa-eye icone-olho" id="olho-senha" onclick="mostrarSenha('senha', 'olho-senha')"></i>
                         <small class="msg-erro-campos"></small>
                     </div>
@@ -47,15 +47,17 @@ Qualquer usuário não logado deve ser redirecionado para essa página ao tentar
                      <div class="user-confirmar-senha">
                         <i class="fa-solid fa-key icone-senha"></i>
                         <br>
-                        <input type="password" placeholder="Confirmar senha" class="escrever-user-senha" id="confirmar-senha" required>
+                        <input type="password" placeholder="Confirmar senha" name="password2" class="escrever-user-senha" id="confirmar-senha" required>
                         <i class="fa-solid fa-eye icone-olho-conf" id="olho-confirmar-senha" onclick="mostrarSenha('confirmar-senha', 'olho-confirmar-senha')"></i>
                         <small class="msg-erro-campos"></small>
                     </div>
 
+
                     <button class="login-btn" type="submit" id="criar-conta">Criar conta</button>
                     
                     <div>
-                        <p>Já possui uma conta? <a class="link-registrar-logar" href="login.html">Faça login</a></p>
+                        <p>Já possui uma conta? <a class="link-registrar-logar" href="../templates/login.html">Faça login</a></p>
+                        <!--href="{% url 'login' %}"-->
                     </div>
 
                 </form>
