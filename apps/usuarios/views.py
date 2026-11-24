@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib import messages
 from django.core.mail import send_mail
 from datetime import timedelta
@@ -210,6 +211,10 @@ def reenviar_codigo(request):
     return redirect("confirmar_codigo")
 
 @login_required
+def perfil(request):
+    return render(request, "perfil.html")
+
+@login_required
 def mudar_nome(request):
     if request.method == "POST":
         form = UsuarioMudarNomeForm(request.POST, instance=request.user)
@@ -220,6 +225,18 @@ def mudar_nome(request):
     else:
         form = UsuarioMudarNomeForm(instance=request.user)
     return render(request, "mudar_nome.html", {"form": form})
+
+@login_required
+def mudar_senha(request):
+    if request.method == "POST":
+        form = PasswordChangeForm(request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "senha alterada")
+            return redirect("home")
+    else:
+        form = PasswordChangeForm(instance=request.user)
+    return render(request, "mudar_senha.html", {"form": form})
 
 @login_required
 def mudar_email(request):

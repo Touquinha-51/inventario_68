@@ -10,6 +10,7 @@ class UsuarioSerializer(serializers.ModelSerializer):
         model = Usuario
         # campos expostos na api
         fields = [
+            "id",
             "nome",
             "email",
             "is_staff",
@@ -17,7 +18,7 @@ class UsuarioSerializer(serializers.ModelSerializer):
             "criado_em",
         ]
         # campos somente leitura (não podem ser alterados via api)
-        read_only_fields = ["criado_em", "is_staff", "is_active"]
+        read_only_fields = ["id", "criado_em", "is_staff", "is_active"]
 
 
 # serializer usado apenas na criação de usuários
